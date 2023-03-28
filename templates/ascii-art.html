@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Ascii art</title>
+	<style>
+		body {
+			height: 100vh;
+			display: flex;
+			align-items: center;
+			flex-direction: column;
+		}
+
+		pre {
+			background-color: blanchedalmond;
+			display: inline-block;
+			border: 1px solid black;
+		}
+	</style>
+</head>
+
+<body>
+	<h1>Ascii art</h1>
+	<p>Here's your generated ascii art:</p>
+	<pre>{{.AsciiArt}}</pre>
+	<form action="ascii-art" method="post">
+		<input hidden name="text" value="{{.Text}}">
+		<input hidden name="banner" value="{{.Banner}}">
+		<input hidden name="download" value="true">
+		<button type="submit">Download as .txt</button>
+	</form>
+</body>
+
+</html>

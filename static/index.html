@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <title>ASCII Art Generator</title>
+    <script src="button.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <form method="POST" action="/ascii-art" id="form-group">
+        <div class="form-group">
+          <textarea
+            name="input"
+            type="text"
+            placeholder="Type here..."
+            class="input-field"
+          ></textarea>
+        </div>
+        <div class="form-group">
+          <label for="styles">Select styles:</label>
+          <select id="styles" name="styles" class="input-field">
+            <option value="standard">Standard</option>
+            <option value="shadow">Shadow</option>
+            <option value="thinkertoy">Thinkertoy</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="styles">Select Output:</label>
+          <select id="styles" name="outputs" class="input-field">
+            <option value="print">Print</option>
+            <option value="export">Export</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <input
+            type="submit"
+            value="Generate choice"
+            class="button-style btn-classy"
+            id="generate-button"
+          />
+          <img
+            src="image1.jpg"
+            alt="image"
+            onclick="document.getElementById('form-group').submit()"
+            class="image-submit"
+            id="image-submit"
+            style="max-width: 50px;"
+          />
+          <p class="img-caption">Make it fun, Click!</p>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

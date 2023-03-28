@@ -1,0 +1,16 @@
+FROM golang:alpine as builder
+LABEL stage=builder
+COPY . /src
+WORKDIR /src
+RUN CGO_ENABLED=0 go build -o /bin/ascii-art-web-dockerize
+
+FROM scratch
+LABEL name="ascii-art-web-dockerize"
+LABEL source=https://01.kood.tech/git/suzoagba/Ascii-Art-Web-Dockerize.git
+LABEL description="A simple web server that displays ASCII art banners"
+COPY --from=builder /bin/ascii-art-web-dockerize /
+COPY --from=builder /src/banners /banners
+COPY --from=builder /src/static /static
+COPY --from=builder /src/templates /templates
+EXPOSE 8080
+CMD ["/ascii-art-web-dockerize"]
